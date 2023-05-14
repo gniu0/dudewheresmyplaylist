@@ -19,50 +19,66 @@
              Authbear: "Authbear"
            }
          });
-    const Playlists = new Array(fetch("https://api.spotify.com/v1/me/playlists", 
+    const allPlaylists = new Array(fetch("https://api.spotify.com/v1/me/playlists", 
                                {
                                  headers: 
                                  {
                                    Authbear: "Authbear"
                                  }
                                }));
-    
-    for Plist in Playlists
+    const matchPlists = [];
+    for Plist in allPlaylists
     {
       for item in Plist
 	    {
-	      ffjfjfjf;
+	      if item == ;
 	    }
     }
   </script>
   
 </head>
+
+<!--
 async function logJSONData() {
   const response = await fetch("http://example.com/movies.json");
   const jsonData = await response.json();
   console.log(jsonData);
 }
-  
+-->
 <body>
 
-<form method="GET" action="junk.cgi">
-  <input type=text name="track title">
-  <input type=text name="artist">
-  <input type=submit name=press value="search">
+<div class='wrapper'>
+<form action="">
+    <label>Track title</label>
+    <input type="text" name="song"><br><br>
+    <label>Artist</label>
+    <input type="text" name="artist"><br><br>
+    <input type="submit" value="Search">
 </form>
+</div>
+
 <script>
-  fetch("https://api.spotify.com/v1/search?q=track:"+"track title"+"%20artist:"+"artist"+"&type=track").then(function(response) 
+	
+  var song = document.getElementsByName("song")[0].value;
+  var artist = document.getElementsByName("artist")[0].value;
+	
+  fetch("https://api.spotify.com/v1/search?q=track:"+song+"%20artist:"+artist+"&type=track").then(function(response) 
 	{
 	  // The API call was successful!
-	return response.json();}).then(function (data) 
+	return response.json();}).then(function(data) 
 	{
 	  // This is the JSON from our response
 	  console.log(data);
-	}).catch(function (err) 
+	}).catch(function(err) 
 	{
 	  // There was an error
 	console.warn('Something went wrong.', err);
 	});  
+
+
+<div>
+    <p id='result'></p>
+</div>
 
 </body>
   
