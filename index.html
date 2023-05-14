@@ -24,26 +24,31 @@
 <script>	
 var song = document.getElementsByName("song")[0].value;
 var artist = document.getElementsByName("artist")[0].value;
-	
+var matches = "";
+var plistcount = 0;
 var trackID = fetch( (("https://api.spotify.com/v1/search?q=" + "artist" + "song" + "&type=track&limit=1")."tracks")."id" );
-for Plist in allPlaylists
+for id in allPlaylists
 {
-  for tid in Plist
+  for track in id
   {
-    if (tid == trackID)
+    if (track == trackID)
     {
-      matchPlists += Plist;
-      break;
+      plistcount++;
+      plistname = fetch( ("https://api.spotify.com/v1/playlists/" + id).name )
+      matches += ("\n" + plistname +" ");
     }
   }
 }
-var number = matchPlists.length
-document.getElementById("myText").innerHTML = number;
+document.getElementById("playlists").innerHTML = matches;
+document.getElementById("myText").innerHTML = plistcount;
 </script>
+
 <div>
 <p>"This track appears in "</p>
-<h1><span id="myText"></span></h1>
-<p>"of your playlists."</p>
+<h2><span id="myText"></span></h2>
+<p>"of your playlists: "<p>
+<h3><span id="playlists"></span></h3>
+
 </div>
 
 </body>
