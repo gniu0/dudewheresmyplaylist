@@ -29,9 +29,6 @@ async function generateCodeChallenge(codeVerifier)
   const digest = await window.crypto.subtle.digest('SHA-256', data);
   return base64encode(digest);
 }
-var Current_user = fetch("https://api.spotify.com/v1/me");
-const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
-const matchPlists = [];
 </script>  
 </div>  
 
@@ -106,6 +103,9 @@ const response = fetch('https://accounts.spotify.com/api/token',
 </div>
 
 <script>	
+var Current_user = fetch("https://api.spotify.com/v1/me");
+const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
+const matchPlists = [];
 var song = document.getElementsByName("song")[0].value;
 var artist = document.getElementsByName("artist")[0].value;
 var matches = "";
