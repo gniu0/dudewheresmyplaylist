@@ -111,15 +111,16 @@ var song = document.getElementsByName("song")[0].value;
 var artist = document.getElementsByName("artist")[0].value;
 var matches = "";
 var plistcount = 0;
-var trackID = fetch( (("https://api.spotify.com/v1/search?q=" + "artist" + "song" + "&type=track&limit=1")."tracks")."id" );
-for id in allPlaylists
+var trackID = fetch( (("https://api.spotify.com/v1/search?q=" + artist +"%20" + song + "&type=track&limit=1")."tracks")."id" );
+for id in allPlaylists["id"]
 {
-  for track in id
+  var allsongs = (fetch("https://api.spotify.com/v1/playlists/"+id+"/tracks"))[items][id];
+  for tid in allsongs["track"]["id"]
   {
-    if (track == trackID)
+    if (tid == trackID)
     {
       plistcount++;
-      plistname = fetch( ("https://api.spotify.com/v1/playlists/" + id).name )
+      plistname = fetch( ( fetch("https://api.spotify.com/v1/playlists/"+id) )."name" ) 
       matches += ("\n" + plistname +" ");
     }
   }
