@@ -10,26 +10,30 @@
                                 "Content-Type": "application/x-www-form-urlencoded"
                               },
                               method: "POST"
-                            })
-    var Authbear = 'Authorization: Bearer ' + access_token
-    
+                            });
+    var Authbear = 'Authorization: Bearer ' + access_token;
     var Current_user = fetch("https://api.spotify.com/v1/me", 
          {
            headers: 
            {
              Authbear: "Authbear"
            }
-         })
-    const Playlists = 
-    for var Playlist in (fetch("https://api.spotify.com/v1/me/playlists", 
-                             {
-                               headers: 
+         });
+    const Playlists = new Array(fetch("https://api.spotify.com/v1/me/playlists", 
                                {
-                                 Authbear: "Authbear"
-                               }
-                             }))[])
+                                 headers: 
+                                 {
+                                   Authbear: "Authbear"
+                                 }
+                               }));
+    
+    for Plist in Playlists
     {
-      for  
+      for item in Plist
+	    {
+	      ffjfjfjf;
+	    }
+    }
   </script>
   
 </head>
@@ -62,7 +66,7 @@ async function logJSONData() {
 
 </body>
   
-<script language="JavaScript">
+<script>
 var fhs = document.createElement('script');
 var fhs_id = "5685660";
 var ref = (''+document.referrer+'');
