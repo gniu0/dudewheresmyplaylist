@@ -13,7 +13,6 @@
                             })
     var Authbear = 'Authorization: Bearer ' + access_token
     
-    
     var Current_user = fetch("https://api.spotify.com/v1/me", 
          {
            headers: 
@@ -43,22 +42,25 @@ async function logJSONData() {
 <body>
 
 <form method="GET" action="junk.cgi">
-  <input type=text name="title">
+  <input type=text name="track title">
   <input type=text name="artist">
   <input type=submit name=press value="search">
   https://api.spotify.com/v1/search?q=track:"' + despacito + '"%20artist:"' + bieber + '"&type=track
 </form>
-<script language ="curl">
-  https://api.spotify.com/v1/search?q=track:"' + despacito + '"%20artist:"' + bieber + '"&type=track
-
-
-
-<h2>Demo JavaScript in Head</h2>
- 
-<p id="demo">A Paragraph</p>
-<button type="button" onclick="myFunction()">Try it</button>
+<script>
+  fetch("https://api.spotify.com/v1/search?q=track:" + "track title" + "%20artist:" + "artist" + '"&type=track').then(function (response) {
+	// The API call was successful!
+	return response.json();
+}).then(function (data) {
+	// This is the JSON from our response
+	console.log(data);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});  
 
 </body>
+  
 <script language="JavaScript">
 var fhs = document.createElement('script');
 var fhs_id = "5685660";
