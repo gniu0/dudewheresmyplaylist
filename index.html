@@ -2,42 +2,13 @@
 <html>
 <head>
   <script>
-    var access_token = fetch("https://accounts.spotify.com/api/token", 
-                            {
-                              body: "grant_type=client_credentials&client_id=43fd4d635f4342ffb337c5e33b4a02bd&client_secret=e6529dd627d84c009ba09abf6b9bea4d",
-                              headers: 
-                              {
-                                "Content-Type": "application/x-www-form-urlencoded"
-                              },
-                              method: "POST"
-                            });
-    var Authbear = 'Authorization: Bearer ' + access_token;
-    var Current_user = fetch("https://api.spotify.com/v1/me", 
-         {
-           headers: 
-           {
-             Authbear: "Authbear"
-           }
-         });
-    const allPlaylists = new Array(fetch("https://api.spotify.com/v1/me/playlists", 
-                               {
-                                 headers: 
-                                 {
-                                   Authbear: "Authbear"
-                                 }
-                               }));
+    var Current_user = fetch("https://api.spotify.com/v1/me");
+    const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
     const matchPlists = [];
   </script>
   
 </head>
 
-<!--
-async function logJSONData() {
-  const response = await fetch("http://example.com/movies.json");
-  const jsonData = await response.json();
-  console.log(jsonData);
-}
--->
 <body>
 
 <div class='wrapper'>
@@ -54,23 +25,13 @@ async function logJSONData() {
 var song = document.getElementsByName("song")[0].value;
 var artist = document.getElementsByName("artist")[0].value;
 	
-var trackID = fetch("https://api.spotify.com/v1/search?q=track:"+song+"%20artist:"+artist+"&type=track")[0];
-
-	curl --request GET \
-  --url https://api.spotify.com/v1/playlists/3cEYpjA9oz9GiPac4AsH4n/tracks \
-  --header 'Authorization: Bearer undefined...undefined'
+var trackID = fetch( (("https://api.spotify.com/v1/search?q=" + "artist" + "song" + "&type=track&limit=1")."tracks")."id" );
 
 for Plist in allPlaylists
     {
-      Plist = fetch("https://api.spotify.com/v1/playlists/"+f/tracks", 
-		    {
-  	headers: {
-    	Authorization: "Bearer undefined...undefined"
-  	}
-})	
-      for item in Plist
+      for tid in Plist
 	    {
-	      if item == trackID;
+	      if tid == trackID;
 	    }
     }
 <div>
