@@ -2,9 +2,9 @@
 <html>
 <head>
   <script language ="curl">
-    Access_token = $((curl -X POST "https://accounts.spotify.com/api/token" \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -d "grant_type=client_credentials&client_id=43fd4d635f4342ffb337c5e33b4a02bd&client_secret=e6529dd627d84c009ba09abf6b9bea4d")[1])
+    Access_token = $((curl -X POST 'https://accounts.spotify.com/api/token' \
+     -H 'Content-Type: application/x-www-form-urlencoded' \
+     -d 'grant_type=client_credentials&client_id=43fd4d635f4342ffb337c5e33b4a02bd&client_secret=e6529dd627d84c009ba09abf6b9bea4d')[1])
     Authbear = 'Authorization: Bearer ' + Access_token
     Current_user = $(curl --request GET \
                       --url https://api.spotify.com/v1/me \
@@ -15,11 +15,15 @@
   </script>
   
 </head>
-
+async function logJSONData() {
+  const response = await fetch("http://example.com/movies.json");
+  const jsonData = await response.json();
+  console.log(jsonData);
+}
+  
 <body>
 
-
-<script>
+  <script>
 function myFunction() {
   document.getElementById("demo").innerHTML = "Paragraph changed.";
 }
