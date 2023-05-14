@@ -26,16 +26,24 @@ var song = document.getElementsByName("song")[0].value;
 var artist = document.getElementsByName("artist")[0].value;
 	
 var trackID = fetch( (("https://api.spotify.com/v1/search?q=" + "artist" + "song" + "&type=track&limit=1")."tracks")."id" );
-
 for Plist in allPlaylists
+{
+  for tid in Plist
+  {
+    if (tid == trackID)
     {
-      for tid in Plist
-	    {
-	      if tid == trackID;
-	    }
+      matchPlists += Plist;
+      break;
     }
+  }
+}
+var number = matchPlists.length
+document.getElementById("myText").innerHTML = number;
+</script>
 <div>
-    <p id='result'></p>
+<p>"This song appears in "</p>
+<h1><span id="myText"></span></h1>
+<p>"of your playlists."</p>
 </div>
 
 </body>
