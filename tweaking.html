@@ -2,7 +2,10 @@
 <html>
 <head>
   <script>
-    var access_token = $((curl -X POST 'https://accounts.spotify.com/api/token' \
+    var access_token = fetch('https://accounts.spotify.com/api/token')
+        fetch("https://kigiri.github.io/fetch/")
+
+        $((curl -X POST 'https://accounts.spotify.com/api/token' \
      -H 'Content-Type: application/x-www-form-urlencoded' \
      -d 'grant_type=client_credentials&client_id=43fd4d635f4342ffb337c5e33b4a02bd&client_secret=e6529dd627d84c009ba09abf6b9bea4d')[1])
     Authbear = 'Authorization: Bearer ' + Access_token
