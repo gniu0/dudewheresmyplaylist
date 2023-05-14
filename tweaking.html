@@ -27,13 +27,6 @@
                                  }
                                }));
     const matchPlists = [];
-    for Plist in allPlaylists
-    {
-      for item in Plist
-	    {
-	      if item == ;
-	    }
-    }
   </script>
   
 </head>
@@ -57,25 +50,20 @@ async function logJSONData() {
 </form>
 </div>
 
-<script>
+<script>	
+var song = document.getElementsByName("song")[0].value;
+var artist = document.getElementsByName("artist")[0].value;
 	
-  var song = document.getElementsByName("song")[0].value;
-  var artist = document.getElementsByName("artist")[0].value;
-	
-  fetch("https://api.spotify.com/v1/search?q=track:"+song+"%20artist:"+artist+"&type=track").then(function(response) 
-	{
-	  // The API call was successful!
-	return response.json();}).then(function(data) 
-	{
-	  // This is the JSON from our response
-	  console.log(data);
-	}).catch(function(err) 
-	{
-	  // There was an error
-	console.warn('Something went wrong.', err);
-	});  
+var trackID = fetch("https://api.spotify.com/v1/search?q=track:"+song+"%20artist:"+artist+"&type=track")[0];
+	  
 
-
+for Plist in allPlaylists
+    {
+      for item in Plist
+	    {
+	      if item == ;
+	    }
+    }
 <div>
     <p id='result'></p>
 </div>
