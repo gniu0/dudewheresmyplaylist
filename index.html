@@ -3,8 +3,8 @@
 <head>
 </head>
 <body>
-  <script>
-  function generateRandomString(length) 
+<script>
+function generateRandomString(length) 
   {
     let text = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -14,25 +14,26 @@
     }
     return text;
   }   
-  const digest = await window.crypto.subtle.digest('SHA-256', data); 
-  async function generateCodeChallenge(codeVerifier) 
+const digest = await window.crypto.subtle.digest('SHA-256', data); 
+async function generateCodeChallenge(codeVerifier) 
+{
+  function base64encode(string) 
   {
-    function base64encode(string) 
-    {
-      return btoa(String.fromCharCode.apply(null, new Uint8Array(string)))
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/, '');
-    }
-    const encoder = new TextEncoder();
-    const data = encoder.encode(codeVerifier);
-    const digest = await window.crypto.subtle.digest('SHA-256', data);
-    return base64encode(digest);
+    return btoa(String.fromCharCode.apply(null, new Uint8Array(string)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   }
-  var Current_user = fetch("https://api.spotify.com/v1/me");
-  const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
-  const matchPlists = [];
-  </script>  
+  const encoder = new TextEncoder();
+  const data = encoder.encode(codeVerifier);
+  const digest = await window.crypto.subtle.digest('SHA-256', data);
+  return base64encode(digest);
+}
+var Current_user = fetch("https://api.spotify.com/v1/me");
+const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
+const matchPlists = [];
+</script>  
+</div>  
 
 <div>
 <script>
