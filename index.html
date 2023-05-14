@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+</head>
+<body>
   <script>
   function generateRandomString(length) 
   {
@@ -31,9 +33,7 @@
   const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
   const matchPlists = [];
   </script>  
-</head>
 
-<body>
 <div>
 <script>
 const clientId = '43fd4d635f4342ffb337c5e33b4a02bd';
@@ -127,9 +127,7 @@ document.getElementById("myText").innerHTML = plistcount;
 </script>
 
 <div>
-<p>"This track appears in "</p>
-<h2><span id="myText"></span></h2>
-<p>"of your playlists: "<p>
+<p>This track appears in <h2><span id="myText"></span></h2> of your playlists: </p>
 <h3><span id="playlists"></span></h3>
 
 </div>
