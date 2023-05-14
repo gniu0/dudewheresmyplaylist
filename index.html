@@ -102,7 +102,8 @@ const response = fetch('https://accounts.spotify.com/api/token',
     <input type="submit" value="Search">
 </form>
 </div>
-
+  
+<div>
 <script>	
 var Current_user = fetch("https://api.spotify.com/v1/me");
 const allPlaylists = new Array( fetch( (("https://api.spotify.com/v1/me/playlists")."items")."id" ));
@@ -120,7 +121,7 @@ for id in allPlaylists["id"]
     if (tid == trackID)
     {
       plistcount++;
-      plistname = fetch( ( fetch("https://api.spotify.com/v1/playlists/"+id) )."name" ) 
+      let plistname = fetch( ( fetch("https://api.spotify.com/v1/playlists/"+id) )."name" );
       matches += ("\n" + plistname +" ");
     }
   }
@@ -128,6 +129,7 @@ for id in allPlaylists["id"]
 document.getElementById("playlists").innerHTML = matches;
 document.getElementById("myText").innerHTML = plistcount;
 </script>
+</div>
 
 <div>
 <p>This track appears in <h2><span id="myText"></span></h2> of your playlists: </p>
